@@ -43,6 +43,17 @@ class ModelConfig(TypedDict):
 
 # Available model configurations
 MODEL_CONFIGS: Dict[str, ModelConfig] = {
+    "gpt-oss": {
+        "base_url": "http://localhost:1234/v1",
+        "api_type": "openai",
+        "completion_config": {
+            "model": "openai/gpt-oss-20b",
+            "temperature": 0.2,
+            "top_p": 0.7,
+            "max_tokens": 2048,
+            "stream": True,
+        },
+    },
     "llama-3.1-8b": {
         "base_url": "https://integrate.api.nvidia.com/v1",
         "api_type": "nvdev",

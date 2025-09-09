@@ -501,12 +501,18 @@ def produce_report(
     format_prompt: str,
     topic_relevant_segments: dict[str, List[str]],
 ) -> str:
+    # topic_relevant_segments_str: str = "\n".join(
+    #     [
+    #         f"Topic: {topic}\n{'\n'.join(segments)}"
+    #         for topic, segments in topic_relevant_segments.items()
+    #     ]
+    # )
     topic_relevant_segments_str: str = "\n".join(
-        [
-            f"Topic: {topic}\n{'\n'.join(segments)}"
-            for topic, segments in topic_relevant_segments.items()
-        ]
+        f"Topic: {topic}\n" + "\n".join(segments)
+        for topic, segments in topic_relevant_segments.items()
     )
+
+
     messages = [
         {
             "role": "system",
